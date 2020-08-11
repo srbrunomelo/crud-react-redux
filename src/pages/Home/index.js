@@ -72,26 +72,8 @@ export default function Home() {
     };
 
     const handleStatus = key => {  
-        /*
-        const newData = [...users];
-        const index = newData.findIndex(item => item.key === key);
-
-        if (index > -1) {
-        const item = newData[index];  
-
-            if (item.status === 'inativo') {
-            var row = {...item, status: 'ativo'}
-            } else {
-            var row = {...item, status: 'inativo'}
-            } 
-
-        newData.splice(index, 1, { ...item, ...row });
-        setDataSource(newData); 
-        } else {
-        newData.push(row);
-        setDataSource(newData); 
-        } 
-        */
+      dispatch(userAction.handleStatus(key))
+      message.success('Status atualizado com sucesso'); 
     } 
 
     return (

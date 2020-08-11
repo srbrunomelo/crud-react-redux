@@ -13,3 +13,10 @@ export function deleteUser(key) {
         payload: {key}
     }
 }
+
+export function handleStatus(key) {
+    return {
+        type: types.HANDLE_STATUS,
+        payload: {key}
+    }
+}

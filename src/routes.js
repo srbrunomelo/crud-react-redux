@@ -1,19 +1,22 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { PersistGate } from 'redux-persist/integration/react'; 
 
 import { Provider } from 'react-redux' 
-import store from './store';
+import store, { persistor } from './store';
 
 import Home from './pages/Home';
 
 export default function Routes() {
     return (
         <Provider store={store}>
-            <BrowserRouter>
-                <Switch>
-                    <Route path="/" exact component={Home} />
-                </Switch>
-            </BrowserRouter>
+            <PersistGate persistor={persistor}>
+                <BrowserRouter>
+                    <Switch>
+                        <Route path="/" exact component={Home} />
+                    </Switch>
+                </BrowserRouter>
+            </PersistGate>
         </Provider>
     )
 }
